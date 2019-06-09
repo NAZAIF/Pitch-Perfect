@@ -54,8 +54,8 @@ class RecordSoundViewController: UIViewController, AVAudioRecorderDelegate {
     
     func configureUI(isRecording:Bool){
         recordLabel.text = isRecording ? "Recording in Progress" : "Tap to Record"
-        stoprecordingButton.isEnabled = isRecording ? true : false
-        recordButton.isEnabled = isRecording ? false : true
+        stoprecordingButton.isEnabled = isRecording
+        recordButton.isEnabled = !isRecording
     }
     
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
@@ -74,14 +74,6 @@ class RecordSoundViewController: UIViewController, AVAudioRecorderDelegate {
             playSoundsVC.recordedAudioURL = recordedAudioUrl
         }
     }
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+
     
 }
